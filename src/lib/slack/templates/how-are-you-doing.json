@@ -1,0 +1,38 @@
+{
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": ":thought_balloon: *I am...*"
+            }
+        },
+        {
+            "type": "divider"
+        },
+        {
+            "type": "static_select",
+            "placeholder": {
+                "type": "mrkdwn",
+                "emoji": true,
+                "text": ":grin: Doing Well"
+            }
+        },
+        {
+            "type": "static_select",
+            "placeholder": {
+                "type": "mrkdwn",
+                "emoji": true,
+                "text": ":unamused: Neutral"
+            }
+        },
+        {
+            "type": "static_select",
+            "placeholder": {
+                "type": "mrkdwn",
+                "emoji": true,
+                "text": ":heart_eyes: Feeling Lucky"
+            }
+        }
+    ]
+}

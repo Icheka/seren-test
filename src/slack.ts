@@ -5,6 +5,7 @@ import _error from "./helpers/_error";
 import dotenv from "dotenv";
 import path from "path";
 import dbConnect from "./helpers/dbConnect";
+import { SlackBotCommandOption } from "./types/slack";
 
 // load env variables in non-PRODUCTION environments
 const ENV_FILE = process.argv.length > 2 ? process.argv[2] : undefined;
@@ -19,11 +20,22 @@ const client = new App({
 
 // COMMAND: /bot
 client.command("/bot", async ({ ack, say, command }) => {
-    console.log("got /bot", command.text);
+    // command.text holds the text argument passed to the slash-command;
+    const { text } = command;
     try {
         // acknowledge receipt of this command
         await ack();
-        Slack.sayWelcome(say);
+
+        // parse command text and respond with the appropriate operation
+        const option: SlackBotCommandOption = Slack.parseBotCommand(text);
+        switch (option.text) {
+            case "":
+                break;
+            case "hello":
+                Slack.sayWelcome(say);
+                Slack.respondWithHowAreYouFeelingOptions(say);
+                break;
+        }
     } catch (e) {
         Log.log(`Slack /bot command error ::`, e);
     }
