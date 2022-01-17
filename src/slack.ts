@@ -55,8 +55,8 @@ client.action("select-hobbies", async ({ ack, action, body, payload, say }) => {
     // acknowledge
     await ack();
     console.log("select hobbies received!");
-    const response: SlackSelectActionPayloadType = payload as any;
-    console.log(response.selected_option.value, (body as any).user.username); // body.user.id
+    const response: any = payload as any;
+    console.log(response, (body as any).user.username); // body.user.id
 });
 
 (async () => {
