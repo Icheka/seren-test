@@ -2,7 +2,7 @@
     "name": "seren-test-slack-api",
     "version": "1.0.0",
     "description": "TypeScript + Node.js + MongoDB + Mongoose",
-    "main": "index.js",
+    "main": "src/slack.ts",
     "scripts": {
         "start": "npm run build && node build/slack.js",
         "start:dev": "nodemon",
@@ -13,19 +13,20 @@
         "lint": "eslint .",
         "test": "mocha ./src/tests/**/*.js --recursive",
         "heroku:logs": "heroku logs --tail -a=seren-test-slack-bot",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "setup:dev": "npm run i && npm run prepare"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Fling-Inc/flng-backend.git"
+        "url": "git+https://github.com/Icheka/seren-test.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/Fling-Inc/flng-backend/issues"
+        "url": "https://github.com/Icheka/seren-test/issues"
     },
-    "homepage": "https://github.com/Fling-Inc/flng-backend#readme",
+    "homepage": "https://github.com/Icheka/seren-test#readme",
     "dependencies": {
         "@slack/bolt": "^3.8.1",
         "@types/bcrypt": "^5.0.0",

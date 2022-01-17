@@ -36,7 +36,26 @@ app.use(express.static(path.join(__dirname, "public")));
 // APIS
 app.use(`/api/v1`, API_ROUTE);
 app.use(`/`, (req, res) => {
-    res.send("You are here - Home");
+    res.send({
+        creator: {
+            name: "Ozuru, Icheka Fortune",
+            email: "rhemafortune@gmail.com",
+            linkedIn: "https://linkedin.com/in/icheka-ozuru",
+            gitHub: "https://github.com/icheka",
+        },
+        routes: {
+            slack: {
+                events: "Slack Bot API webhook",
+            },
+            api: {
+                v1: {
+                    users: "GET: List all users",
+                    moods: "GET: List users and their moods",
+                    hobbies: "GET: List users and their hobbies",
+                },
+            },
+        },
+    });
 });
 
 // startup/exit
