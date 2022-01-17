@@ -1,4 +1,4 @@
-import { SayFn } from "@slack/bolt";
+import { RespondFn, SayFn } from "@slack/bolt";
 import { SlackBotCommandOption, SlackBotCommandOptions } from "../../types/slack";
 import { HOW_ARE_YOU_DOING_BLOCKS } from "./templates/how-are-you-doing";
 import { SELECT_HOBBIES } from "./templates/select-hobbies";
@@ -33,6 +33,10 @@ class Slack {
         const blocks = SELECT_HOBBIES;
         const response = { text: `What are your hobbies?`, blocks };
         say(response);
+    }
+
+    public static async sayThankYou(say: SayFn) {
+        say(`*Thank you!*`);
     }
 }
 
