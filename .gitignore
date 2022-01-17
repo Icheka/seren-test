@@ -1,3 +1,13 @@
+# rest.http/
+rest.http/
+
+# compiled JS
+build/
+
+# .vscode
+# to eliminate needless merge conflicts
+.vscode/
+
 # Logs
 logs
 *.log
