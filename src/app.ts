@@ -9,7 +9,6 @@ import dbConnect from "./helpers/dbConnect";
 import _error from "./helpers/_error";
 import dotenv from "dotenv";
 import { API_ROUTE } from "./routes";
-import r from "./slack";
 
 // application setup
 //// for non-PRODUCTION environments...
@@ -46,7 +45,6 @@ declare module "express-serve-static-core" {
 
 // routes
 // APIS
-app.use("/", r);
 app.use(`/api`, API_ROUTE);
 
 // startup/exit
