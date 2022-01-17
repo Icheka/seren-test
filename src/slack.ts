@@ -19,9 +19,10 @@ const client = new App({
 });
 
 // COMMAND: /bot
-client.command("/bot", async ({ ack, say, command }) => {
+client.command("/bot", async ({ ack, say, command, payload }) => {
     // command.text holds the text argument passed to the slash-command;
     const { text } = command;
+    console.log(payload.user);
     try {
         // acknowledge receipt of this command
         await ack();
