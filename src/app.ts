@@ -9,8 +9,10 @@ import dbConnect from "./helpers/dbConnect";
 import _error from "./helpers/_error";
 import dotenv from "dotenv";
 import { API_ROUTE } from "./routes";
+import r from "./slack";
 
 // application setup
+//// for non-PRODUCTION environments...
 const ENV_FILE = process.argv.length > 2 ? process.argv[2] : undefined;
 _error.guard();
 ENV_FILE && dotenv.config({ path: path.join(process.cwd(), ENV_FILE) });
@@ -20,7 +22,7 @@ dbConnect.connect();
 // middleware
 app.use(
     cors({
-        origin: (origin, callback) => callback(null, true),
+        origin: (origin, callback) => callback(null, true), // allow requests from anywhere for (dev purposes)
         credentials: true,
     })
 );
@@ -44,6 +46,7 @@ declare module "express-serve-static-core" {
 
 // routes
 // APIS
+app.use("/", r);
 app.use(`/api`, API_ROUTE);
 
 // startup/exit
