@@ -1,6 +1,7 @@
 import { SayFn } from "@slack/bolt";
 import { SlackBotCommandOption, SlackBotCommandOptions } from "../../types/slack";
 import { HOW_ARE_YOU_DOING_BLOCKS } from "./templates/how-are-you-doing";
+import { WELCOME } from "./templates/welcome";
 
 class Slack {
     public static parseBotCommand(text: string): SlackBotCommandOption {
@@ -18,7 +19,7 @@ class Slack {
      * @param say a Slack-Bolt SayFn callback
      */
     public static async sayWelcome(say: SayFn) {
-        say(`Welcome. How are you doing?`);
+        say({ blocks: WELCOME });
     }
 
     public static async respondWithHowAreYouFeelingOptions(say: SayFn) {
