@@ -23,7 +23,7 @@ class Slack {
 
     public static async respondWithHowAreYouFeelingOptions(say: SayFn) {
         const blocks = HOW_ARE_YOU_DOING_BLOCKS;
-        const response = { blocks };
+        const response = { text: `I am feeling...`, blocks };
         say(response);
     }
 }
