@@ -29,7 +29,7 @@ API_ROUTE.get(`/users`, async (req, res) => {
     const [status, data] = await User.getUsers();
     switch (status) {
         case 0:
-            return res.send({ type: "success", data });
+            return res.send({ type: "success", data, code: status });
 
         default:
             return res.status(406).send({ type: "error", code: status, data });

@@ -32,17 +32,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-// extend express Request
-import { Express } from "express-serve-static-core";
-
-type RequestContext = {};
-
-declare module "express-serve-static-core" {
-    interface Request {
-        context: RequestContext;
-    }
-}
-
 // routes
 // APIS
 app.use(`/api/v1`, API_ROUTE);

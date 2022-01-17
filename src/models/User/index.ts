@@ -49,7 +49,7 @@ class User {
 
     public static async getAllHobbies() {
         const users = await UserModel.find({ hobbies: { $ne: null } })
-            .select({ mood: 0 })
+            .select({ mood: 0, slackUserId: 0 })
             .then((data) => data)
             .catch((err) => false);
         if (users === false) return [1, `An error occurred while attempting to retrieve hobbies.`];
@@ -58,7 +58,7 @@ class User {
 
     public static async getAllMoods() {
         const users = await UserModel.find({ mood: { $ne: null } })
-            .select({ hobbies: 0 })
+            .select({ hobbies: 0, slackUserId: 0 })
             .then((data) => data)
             .catch((err) => false);
         if (users === false) return [1, `An error occurred while attempting to retrieve moods.`];

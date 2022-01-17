@@ -4,7 +4,7 @@
     "description": "TypeScript + Node.js + MongoDB + Mongoose",
     "main": "index.js",
     "scripts": {
-        "start": "npm run build && node build/slack.js && node build/app.js",
+        "start": "npm run build && node build/slack.js",
         "start:dev": "nodemon",
         "dev": "nodemon",
         "start:test": "npm run build && node build/app.js test.env",
@@ -12,7 +12,8 @@
         "types": "types-installer interactive",
         "lint": "eslint .",
         "test": "mocha ./src/tests/**/*.js --recursive",
-        "heroku:logs": "heroku logs --tail -a=seren-test-slack-bot"
+        "heroku:logs": "heroku logs --tail -a=seren-test-slack-bot",
+        "prepare": "husky install"
     },
     "repository": {
         "type": "git",
@@ -82,5 +83,9 @@
         "supertest": "^6.2.1",
         "ts-node": "^10.4.0",
         "typescript": "^4.5.4"
+    },
+    "devDependencies": {
+        "concurrently": "^7.0.0",
+        "husky": "^7.0.4"
     }
 }

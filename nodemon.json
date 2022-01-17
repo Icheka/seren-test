@@ -2,5 +2,5 @@
     "watch": ["src"],
     "ext": ".ts,.js",
     "ignore": [],
-    "exec": "ts-node ./src/app.ts dev.env && ts-node ./src/slack.ts"
+    "exec": "ts-node ./src/app.ts dev.env"
 }
