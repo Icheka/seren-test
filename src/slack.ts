@@ -20,7 +20,6 @@ const client = new App({
 });
 
 client.use((args) => {
-    console.log(args);
     return Promise.resolve();
 });
 
