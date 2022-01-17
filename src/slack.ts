@@ -7,6 +7,8 @@ import path from "path";
 import dbConnect from "./helpers/dbConnect";
 import { SlackMultiSelectActionPayloadType, SlackSelectActionPayloadType } from "./types/slack";
 import { SlackBotCommandOption } from "./lib/slack/templates/glossary";
+import User from "./models/User";
+import { Hobbies, Moods } from "./types/user";
 
 // load env variables in non-PRODUCTION environments
 const ENV_FILE = process.argv.length > 2 ? process.argv[2] : undefined;
@@ -52,6 +54,16 @@ client.action("select-how-are-you-doing", async ({ ack, body, payload, say }) =>
     console.log(response.selected_option.value, (body as any).user.username); // body.user.id
 
     await Slack.respondWithWhatAreYourHobbies(say);
+
+    const userId = (body as any).user?.id as string;
+    const userName = (body as any).user?.username as string;
+
+    if (!userId || !userName) return;
+    User.setMood({
+        slackUserId: userId,
+        slackUserName: userName,
+        mood: response.selected_option.value as Moods,
+    });
 });
 
 client.action("select-hobbies", async ({ ack, body, payload, say }) => {
@@ -62,6 +74,16 @@ client.action("select-hobbies", async ({ ack, body, payload, say }) => {
     console.log(response.selected_options, (body as any).user.username); // body.user.id
 
     Slack.sayThankYou(say);
+
+    const userId = (body as any).user?.id as string;
+    const userName = (body as any).user?.username as string;
+
+    if (!userId || !userName) return;
+    User.setHobbies({
+        slackUserId: userId,
+        slackUserName: userName,
+        hobbies: response.selected_options.map((opt) => opt.value) as Array<Hobbies>,
+    });
 });
 
 (async () => {

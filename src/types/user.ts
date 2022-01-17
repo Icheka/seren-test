@@ -15,6 +15,6 @@ export enum Hobbies {
 export type UserType = {
     slackUserId: string;
     slackUserName: string;
-    hobbies: Array<Hobbies>;
-    mood: Moods;
+    hobbies?: Array<Hobbies>;
+    mood?: Moods;
 };

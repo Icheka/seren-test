@@ -1,10 +1,16 @@
 import { SayFn, SectionBlock } from "@slack/bolt";
+import User from "../../models/User";
+import { UserType } from "../../types/user";
 import { SlackBotCommandOption, SlackBotCommandOptions } from "./templates/glossary";
 import { HOW_ARE_YOU_DOING_BLOCKS } from "./templates/how-are-you-doing";
 import { SELECT_HOBBIES } from "./templates/select-hobbies";
 import { WELCOME } from "./templates/welcome";
 
 class Slack {
+    public static async saveUserIfNew(user: UserType) {
+        return await User.registerUser(user);
+    }
+
     /**
      * light-weight parser for parsing slash-commands
      * @param text a parsable string from which to get slash-command arguments
