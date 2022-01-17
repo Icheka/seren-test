@@ -45,6 +45,9 @@ declare module "express-serve-static-core" {
 
 // routes
 // APIS
+app.use(`/`, (req, res) => {
+    res.send("Your are here - Home");
+});
 app.use(`/api`, API_ROUTE);
 
 // startup/exit

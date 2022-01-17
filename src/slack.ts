@@ -5,7 +5,8 @@ import _error from "./helpers/_error";
 import dotenv from "dotenv";
 import path from "path";
 import dbConnect from "./helpers/dbConnect";
-import { SlackBotCommandOption, SlackMultiSelectActionPayloadType, SlackSelectActionPayloadType } from "./types/slack";
+import { SlackMultiSelectActionPayloadType, SlackSelectActionPayloadType } from "./types/slack";
+import { SlackBotCommandOption } from "./lib/slack/templates/glossary";
 
 // load env variables in non-PRODUCTION environments
 const ENV_FILE = process.argv.length > 2 ? process.argv[2] : undefined;
@@ -22,7 +23,6 @@ const client = new App({
 client.command("/bot", async ({ ack, say, command, body }) => {
     // command.text holds the text argument passed to the slash-command;
     const { text } = command;
-    console.log("user :::", body.user);
     try {
         // acknowledge receipt of this command
         await ack();
@@ -30,11 +30,12 @@ client.command("/bot", async ({ ack, say, command, body }) => {
         // parse command text and respond with the appropriate operation
         const option: SlackBotCommandOption = Slack.parseBotCommand(text);
         switch (option.text) {
-            case "":
-                break;
             case "hello":
                 await Slack.sayWelcome(say);
                 await Slack.respondWithHowAreYouFeelingOptions(say);
+                break;
+            case "help":
+                say({ blocks: Slack.buildGlossary() });
                 break;
         }
     } catch (e) {
