@@ -5,7 +5,7 @@ import _error from "./helpers/_error";
 import dotenv from "dotenv";
 import path from "path";
 import dbConnect from "./helpers/dbConnect";
-import { SlackBotCommandOption } from "./types/slack";
+import { SlackBotCommandOption, SlackSelectActionPayloadType } from "./types/slack";
 
 // load env variables in non-PRODUCTION environments
 const ENV_FILE = process.argv.length > 2 ? process.argv[2] : undefined;
@@ -45,8 +45,8 @@ client.action("select-how-are-you-doing", async ({ ack, action, body, payload, s
     // acknowledge
     await ack();
     console.log("how are you doing received!");
-
-    console.log(payload);
+    const response: SlackSelectActionPayloadType = payload as any;
+    console.log(response.selected_option.value, body);
 });
 
 // client.use((args) => {
