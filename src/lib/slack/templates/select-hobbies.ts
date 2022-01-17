@@ -15,7 +15,7 @@ export const SELECT_HOBBIES: Array<MultiStaticSelect | SectionBlock | DividerBlo
         type: "input",
         label: {
             type: "plain_text",
-            text: "",
+            text: "Select hobbies...",
         },
         element: {
             type: "multi_static_select",
