@@ -75,12 +75,12 @@ class Slack {
             type: "section",
             text: {
                 type: "mrkdwn",
-                text: command.text,
+                text: `*${command.text}*`,
             },
             fields: [
                 {
                     type: "plain_text",
-                    text: command.description,
+                    text: `-${command.description}-`,
                 },
             ],
         }));
@@ -88,12 +88,12 @@ class Slack {
             type: "section",
             text: {
                 type: "mrkdwn",
-                text: "Available commands",
+                text: "# Available commands",
             },
             fields: [
                 {
                     type: "mrkdwn",
-                    text: "Usage: /bot [command] | [command arguments, if any]",
+                    text: "### Usage: /bot [command] | [command arguments, if any]",
                 },
             ],
         };
