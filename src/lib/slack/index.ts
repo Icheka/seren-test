@@ -1,6 +1,6 @@
 import { SayFn } from "@slack/bolt";
 import { SlackBotCommandOption, SlackBotCommandOptions } from "../../types/slack";
-import HOW_ARE_YOU_DOING_BLOCKS from "./templates/how-are-you-doing.json";
+import { HOW_ARE_YOU_DOING_BLOCKS } from "./templates/how-are-you-doing";
 
 class Slack {
     public static parseBotCommand(text: string): SlackBotCommandOption {
@@ -23,7 +23,7 @@ class Slack {
 
     public static async respondWithHowAreYouFeelingOptions(say: SayFn) {
         const blocks = HOW_ARE_YOU_DOING_BLOCKS;
-        const response = blocks;
+        const response = { blocks };
         say(response);
     }
 }

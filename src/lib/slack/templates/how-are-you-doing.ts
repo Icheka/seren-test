@@ -1,5 +1,4 @@
-{
-    "blocks": [
+export const HOW_ARE_YOU_DOING_BLOCKS = [
         {
             "type": "section",
             "text": {
@@ -34,5 +33,4 @@
                 "text": ":heart_eyes: Feeling Lucky"
             }
         }
-    ]
-}
+    ];
