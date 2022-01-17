@@ -22,7 +22,6 @@ export const HOW_ARE_YOU_DOING_BLOCKS: Array<Select | SectionBlock | DividerBloc
                     emoji: true,
                     text: "Select from list",
                 },
-                focus_on_load: true,
                 options: [
                     {
                         text: {

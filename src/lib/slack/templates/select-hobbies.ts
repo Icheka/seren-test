@@ -25,7 +25,6 @@ export const SELECT_HOBBIES: Array<MultiStaticSelect | SectionBlock | DividerBlo
                 emoji: true,
                 text: "Choose all that apply",
             },
-            focus_on_load: true,
             options: [
                 {
                     text: {
