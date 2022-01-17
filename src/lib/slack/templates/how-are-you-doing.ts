@@ -14,6 +14,10 @@ export const HOW_ARE_YOU_DOING_BLOCKS: Array<Select | SectionBlock | DividerBloc
     },
     {
         type: "section",
+        text: {
+            type: "plain_text",
+            text: " Select from list...",
+        },
         accessory: {
             type: "static_select",
             placeholder: {
