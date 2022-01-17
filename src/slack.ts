@@ -19,7 +19,7 @@ const client = new App({
 
 // COMMAND: /bot
 client.command("/bot", async ({ ack, say, command }) => {
-    console.log("got /bot", command.command);
+    console.log("got /bot", command.text);
     try {
         // acknowledge receipt of this command
         await ack();
