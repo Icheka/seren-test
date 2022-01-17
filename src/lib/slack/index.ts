@@ -75,12 +75,12 @@ class Slack {
             type: "section",
             text: {
                 type: "mrkdwn",
-                text: `*${command.text}*`,
+                text: `*/bot ${command.text}*`,
             },
             fields: [
                 {
                     type: "plain_text",
-                    text: `- /bot ${command.description}-`,
+                    text: `-${command.description}-`,
                 },
             ],
         }));
