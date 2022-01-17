@@ -1,8 +1,11 @@
-export const HOW_ARE_YOU_DOING_BLOCKS = [
+import { Select, SectionBlock, DividerBlock } from "@slack/bolt";
+
+export const HOW_ARE_YOU_DOING_BLOCKS: Array<Select | SectionBlock | DividerBlock> = [
     {
         type: "section",
         text: {
-            type: "mrkdwn",
+            //type: "mrkdwn",
+            type: "plain_text",
             text: ":thought_balloon: *I am...*",
         },
     },
@@ -16,10 +19,12 @@ export const HOW_ARE_YOU_DOING_BLOCKS = [
             emoji: true,
             text: "Select from list",
         },
+        focus_on_load: true,
         options: [
             {
                 text: {
-                    type: "mrkdwn",
+                    //type: "mrkdwn",
+                    type: "plain_text",
                     text: ":grin: Doing Well",
                     emoji: true,
                 },
@@ -27,7 +32,8 @@ export const HOW_ARE_YOU_DOING_BLOCKS = [
             },
             {
                 text: {
-                    type: "mrkdwn",
+                    //type: "mrkdwn",
+                    type: "plain_text",
                     text: ":unamused: Neutral",
                     emoji: true,
                 },
@@ -35,7 +41,8 @@ export const HOW_ARE_YOU_DOING_BLOCKS = [
             },
             {
                 text: {
-                    type: "mrkdwn",
+                    //type: "mrkdwn",
+                    type: "plain_text",
                     text: ":heart_eyes: Feeling Lucky",
                     emoji: true,
                 },
