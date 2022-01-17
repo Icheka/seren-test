@@ -4,8 +4,7 @@ export const HOW_ARE_YOU_DOING_BLOCKS: Array<Select | SectionBlock | DividerBloc
     {
         type: "section",
         text: {
-            //type: "mrkdwn",
-            type: "plain_text",
+            type: "mrkdwn",
             text: ":thought_balloon: *I am...*",
         },
     },
@@ -29,7 +28,6 @@ export const HOW_ARE_YOU_DOING_BLOCKS: Array<Select | SectionBlock | DividerBloc
             options: [
                 {
                     text: {
-                        //type: "mrkdwn",
                         type: "plain_text",
                         text: ":grin: Doing Well",
                         emoji: true,
@@ -38,7 +36,6 @@ export const HOW_ARE_YOU_DOING_BLOCKS: Array<Select | SectionBlock | DividerBloc
                 },
                 {
                     text: {
-                        //type: "mrkdwn",
                         type: "plain_text",
                         text: ":unamused: Neutral",
                         emoji: true,
@@ -47,7 +44,6 @@ export const HOW_ARE_YOU_DOING_BLOCKS: Array<Select | SectionBlock | DividerBloc
                 },
                 {
                     text: {
-                        //type: "mrkdwn",
                         type: "plain_text",
                         text: ":heart_eyes: Feeling Lucky",
                         emoji: true,

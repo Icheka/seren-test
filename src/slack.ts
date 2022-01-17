@@ -41,6 +41,10 @@ client.command("/bot", async ({ ack, say, command }) => {
     }
 });
 
+client.message(/^[doing\-well|neutral|feeling\-lucky]$/, async ({ say, message, payload }) => {
+    console.log("received message ->", message);
+});
+
 // client.use((args) => {
 //     console.log(args);
 //     args.next();
