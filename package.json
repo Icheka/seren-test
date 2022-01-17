@@ -4,7 +4,7 @@
     "description": "TypeScript + Node.js + MongoDB + Mongoose",
     "main": "index.js",
     "scripts": {
-        "start": "npm run build && node build/app.js && node build/slack.js",
+        "start": "npm run build && node build/slack.js && node build/app.js",
         "start:dev": "nodemon",
         "dev": "nodemon",
         "start:test": "npm run build && node build/app.js test.env",
