@@ -19,6 +19,11 @@ const client = new App({
     signingSecret: process.env.SLACK_SIGNING_SECRET,
 });
 
+client.use((args) => {
+    console.log(args);
+    return Promise.resolve();
+});
+
 // COMMAND: /bot
 client.command("/bot", async ({ ack, say, command, body }) => {
     // command.text holds the text argument passed to the slash-command;
