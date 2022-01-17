@@ -45,10 +45,10 @@ declare module "express-serve-static-core" {
 
 // routes
 // APIS
+app.use(`/api/v1`, API_ROUTE);
 app.use(`/`, (req, res) => {
-    res.send("Your are here - Home");
+    res.send("You are here - Home");
 });
-app.use(`/api`, API_ROUTE);
 
 // startup/exit
 const port = process.env.PORT;

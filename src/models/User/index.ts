@@ -57,6 +57,14 @@ class User {
         return [0, users];
     }
 
+    public static async getUsers() {
+        const users = await UserModel.find()
+            .then((data) => data)
+            .catch((err) => false);
+        if (users === false) return [1, `An error occurred while attempting to retrieve users.`];
+        return [0, users];
+    }
+
     // private methods
     private static async getById(id: string) {
         return await UserModel.findOne({ slackUserId: id })
