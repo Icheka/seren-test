@@ -17,26 +17,17 @@ const client = new App({
     signingSecret: process.env.SLACK_SIGNING_SECRET,
 });
 
-client.command("/bot", async ({ ack, say, command }) => {
-    console.log("got /bot", command.command);
-    try {
-        // acknowledge receipt of this command
-        await ack();
-        Slack.sayWelcome(say);
-    } catch (e) {
-        Log.log(`Slack /bot command error ::`, e);
-    }
-});
-
-client.use((args) => {
-    console.log(args);
-    args.next();
-    return Promise.resolve();
-});
+// client.use((args) => {
+//     console.log(args);
+//     args.next();
+//     return Promise.resolve();
+// });
 
 (async () => {
     if (process.env.PORT === undefined) throw `Application PORT must be defined!`;
     const port = process.env.PORT!;
     await client.start(parseInt(port));
-    console.log(`Slack bot is listening on port ${port}`);
+    console.log(`⚡️ Slack bot is listening on port ${port}`);
 })();
+
+export default client;
