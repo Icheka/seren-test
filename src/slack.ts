@@ -46,7 +46,7 @@ client.action("select-how-are-you-doing", async ({ ack, action, body, payload, s
     await ack();
     console.log("how are you doing received!");
 
-    console.log(action, body, payload);
+    console.log((action as any).value, (action as any).username);
 });
 
 // client.use((args) => {
