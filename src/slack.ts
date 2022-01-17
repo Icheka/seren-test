@@ -45,7 +45,7 @@ client.command("/bot", async ({ ack, say, command, payload }) => {
 client.action("select-how-are-you-doing", async ({ ack, body, payload, say }) => {
     // acknowledge
     await ack();
-    console.log("how are you doing received!");
+    console.log("how are you doing received!", (payload as any).user);
     const response: SlackSelectActionPayloadType = payload as any;
     console.log(response.selected_option.value, (body as any).user.username); // body.user.id
 
