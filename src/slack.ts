@@ -19,10 +19,6 @@ const client = new App({
     signingSecret: process.env.SLACK_SIGNING_SECRET,
 });
 
-client.use((args) => {
-    return Promise.resolve();
-});
-
 // COMMAND: /bot
 client.command("/bot", async ({ ack, say, command, body }) => {
     // command.text holds the text argument passed to the slash-command;
@@ -33,6 +29,7 @@ client.command("/bot", async ({ ack, say, command, body }) => {
 
         // parse command text and respond with the appropriate operation
         const option: SlackBotCommandOption = Slack.parseBotCommand(text);
+        console.log(option.text);
         switch (option.text) {
             case "hello":
                 await Slack.sayWelcome(say);
