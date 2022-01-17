@@ -5,7 +5,7 @@ export const WELCOME: Array<SectionBlock> = [
         type: `section`,
         text: {
             type: "mrkdwn",
-            text: "*Welcome. How are you doing?",
+            text: "*Welcome. How are you doing?*",
         },
     },
 ];
