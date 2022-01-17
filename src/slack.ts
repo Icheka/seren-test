@@ -32,8 +32,8 @@ client.command("/bot", async ({ ack, say, command }) => {
             case "":
                 break;
             case "hello":
-                Slack.sayWelcome(say);
-                Slack.respondWithHowAreYouFeelingOptions(say);
+                await Slack.sayWelcome(say);
+                await Slack.respondWithHowAreYouFeelingOptions(say);
                 break;
         }
     } catch (e) {
@@ -46,7 +46,7 @@ client.action("select-how-are-you-doing", async ({ ack, action, body, payload, s
     await ack();
     console.log("how are you doing received!");
 
-    console.log((action as any).value, (action as any).username);
+    console.log(body);
 });
 
 // client.use((args) => {
