@@ -11,7 +11,8 @@
         "build": "rimraf ./build && npx tsc",
         "types": "types-installer interactive",
         "lint": "eslint .",
-        "test": "mocha ./src/tests/**/*.js --recursive"
+        "test": "mocha ./src/tests/**/*.js --recursive",
+        "heroku:logs": "heroku logs --tail -a=seren-test-slack-bot"
     },
     "repository": {
         "type": "git",

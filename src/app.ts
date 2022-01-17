@@ -21,7 +21,6 @@ dbConnect.connect();
 app.use(
     cors({
         origin: (origin, callback) => callback(null, true),
-        // origin: process.env.CLIENT_URL,
         credentials: true,
     })
 );
