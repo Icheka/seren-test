@@ -46,14 +46,10 @@ client.action("select-how-are-you-doing", async ({ ack, action, body, payload, s
     await ack();
     console.log("how are you doing received!");
     const response: SlackSelectActionPayloadType = payload as any;
-    console.log(response.selected_option.value, body);
-});
+    console.log(response.selected_option.value, (body as any).user.username); // body.user.id
 
-// client.use((args) => {
-//     console.log(args);
-//     args.next();
-//     return Promise.resolve();
-// });
+    await Slack.respondWithWhatAreYourHobbies(say);
+});
 
 (async () => {
     if (process.env.PORT === undefined) throw `Application PORT must be defined!`;
