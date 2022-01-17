@@ -41,8 +41,12 @@ client.command("/bot", async ({ ack, say, command }) => {
     }
 });
 
-client.message(/^[doing\-well|neutral|feeling\-lucky]$/, async ({ say, message, payload }) => {
-    console.log("received message ->", message);
+client.action("select-how-are-you-doing", async ({ ack, action, body, payload, say }) => {
+    // acknowledge
+    await ack();
+    console.log("how are you doing received!");
+
+    console.log(action, body, payload);
 });
 
 // client.use((args) => {
