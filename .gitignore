@@ -4,9 +4,6 @@ rest.http/
 # compiled JS
 build/
 
-# env files
-*.env
-
 # .vscode
 # to eliminate needless merge conflicts
 .vscode/
